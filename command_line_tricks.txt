@@ -1,0 +1,3 @@
+convert from hex to base64
+
+echo "6F0AD0BFEE7D4B478AFED096E03CD80A" | xxd -r -p | base64
