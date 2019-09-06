@@ -17,7 +17,7 @@ Two files are downloaded *note.txt* and *family.ntfs*.
 
 The text file reads "If you're on MacOS, you can rename .ntfs to .dmg".
 
-Having done this the file becomes a mountable disk that replicates the home computer. Time to see what we can find.
+On Linux we can mount the folder by using `sudo mount family.ntfs /mnt`. This reveals a directory structure similar to that of someone's home computer. Time to see what we can find.
 
 Every file is empty except for a file called credentials.txt located in Family/Documents/ which reads "I keep pictures of my credentials in extended attributes". This suggests there is some hidden data in the attributes of the file.
 
