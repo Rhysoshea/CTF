@@ -142,6 +142,7 @@ class VM:
   def xor(self):
     a = self.stack.pop()
     b = self.stack.pop()
+    print("{} ^ {}\n".format(b,a))
     self.stack.append(b ^ a)
 
   OPERATIONS = {

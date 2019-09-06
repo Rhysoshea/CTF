@@ -9,4 +9,14 @@ But not much Cauliflower here. They must be very private creatures. SarahH has l
 
 We are given two files **program** and **vm.py**. Executing program gives a long list of 'command not found' errors at first.
 
-Running `python vm.py` says it is missing program, so I tried again while passing program to it this time `python vm.py program`. It then starts to print out a url, though it does take some time. (if you don't have the patience `http://emoji-t0anaxnr3nacpt4na.web.ctfcompetition.com`). This brings up an interest website of cat pictures and their supposed feline friends.
+Running `python vm.py` says it is missing program, so I tried again while passing program to it this time `python vm.py program`. It then starts to print out a url, though it does take some time. (if you don't have the patience `http://emoji-t0anaxnr3nacpt4na.web.ctfcompetition.com`). This brings up an interesting website of cat pictures and their supposed feline friends. Though after traversing the site and checking out the assets in the Chrome inspector I couldn't find much of value.
+
+I returned to the program and inspected its contents, which were a bunch of emojis that the vm.py script would read and execute accordingly. Reading through the different functions available in the script we can see that the program is mostly loading some numbers into a stack and xor'ing them with what appear to be prime numbers. We can see this by printing out the a and b numbers that are being sent to xor. The result of this is then input to chr() which returns the string of a Unicode integer, thus forming the url. It appears that the program is calculating primes (a) and it is taking longer and longer to do so, which is why the printing of the full url is taking so long.
+
+Searching the first few prime numbers as a sequence reveals that they are a sequence of palindrome primes. So we need a way to easily access or generate these numbers.
+
+The palindrome.py script breaks the vm.py down to its simplest form, printing the xor result of all numbers from program in reverse order. However this broke down part way through. Further investigation into program reveals that at the bottom of each set of numbers is a number that sets the index for the palindrome number sequence.
+
+Finally the full url is revealed as `http://emoji-t0anaxnr3nacpt4na.web.ctfcompetition.com/humans_and_cauliflowers_network/`. Some browsing around this website shows the flag!
+
+CTF{Peace_from_Cauli!}
