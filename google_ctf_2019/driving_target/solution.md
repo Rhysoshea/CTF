@@ -10,7 +10,9 @@ Like all inhabitants of this world, you spend an inordinate amount of time on th
 
 We are given a web address `https://drivetothetarget.web.ctfcompetition.com/`. There is an input of 2 numbers and a `go` submission. Trying to change any of the numbers significantly pops up with a message that we tried to travel too far or too fast.
 
-Changing the left number by 0.0001 lets us travel 11m. Changing the right by 0.0001 travels 6m. If we increment or decrease the numbers correctly we are told that we are getting closer to the rendez-vous.
+Changing the left number by 0.0001 lets us travel 11m. Changing the right by 0.0001 travels 6m. If we decrease either number we are told that we are getting closer to the rendez-vous.
+
+![](website.png)
 
 Inspecting the site reveals that the numbers are latitude and longitude. Inputting the original coordinates into maps puts the location in North East London, UK and also experimenting with the inputs its easy to see that the general correct direction is South West, into Central London.
 
